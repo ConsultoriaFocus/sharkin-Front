@@ -1,0 +1,14 @@
+.button{
+    text-transform:capitalize;
+    background: #11255E;
+    color: #fff;
+    padding: 20px 100px;
+    border-radius: 20px;
+    border: none;
+    flex-shrink: 0;
+}
+
+.text{
+    margin: 0;
+    font: 400 1.25rem "Clear Sans"; 
+}

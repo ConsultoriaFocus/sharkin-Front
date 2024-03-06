@@ -1,0 +1,13 @@
+.button {
+    background: #F4F3F3;
+    border: 1px solid rgba(145, 140, 140, 0.73);
+    border-radius: 20px;
+    padding: 20px 80px;    
+    max-width: 280px;
+    flex-shrink: 0;
+}
+
+.text{
+    margin: 0;
+    font: 400 1.25rem "Clear Sans";
+}
