@@ -1,14 +1,8 @@
 import React from "react";
-/* import FormInput from "./components/formInput/FormInput";
-import Title from "./components/title/Title"; */
+import Login from "./pages/Login/Login";
 
 const App = () => {
-  return (
-    <>
-{/*       <Title title="Histórico" />
-      <FormInput title="Email" /> */}
-    </>
-  );
+  return <Login />;
 };
 
 export default App;
