@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../../components/form/card/Card";
 import Title from "../../components/title/Title";
 import LogoFocus from "../../assets/LogoFocus.svg";
-import FormInput from "../../components/form/formInput/FormInput";
+import Input from "../../components/form/formInput/Input";
 import ButtonPrimary from "../../components/buttonPrimary/ButtonPrimary";
 import ButtonSecondary from "../../components/buttonSecondary/ButtonSecondary";
 import styles from "./Login.module.css";
@@ -20,16 +20,20 @@ const Login = () => {
             <Title title="Sharkin" />
           </div>
 
-          <FormInput title="Email" />
-          <FormInput title="Senha" />
 
-          <div className={styles.button}>
-            <ButtonPrimary text="Entrar" />
-            <ButtonSecondary text="Trocar Senha" />
-          </div>
+          <form action="">
+            <Input label="Email" id="email" type="email" />
+            <Input label="Senha" id="senha" type="password" />
+
+            <div className={styles.button}>
+              <ButtonPrimary text="Entrar" />
+              <ButtonSecondary text="Trocar Senha" />
+            </div>
+          </form>
         </Card>
 
-        <div className={styles.textos}> {/* FIX: Isso provavelmente será puxado de uma api */}
+        <div className={styles.textos}>
+          {/* FIX: Isso provavelmente será puxado de uma api */}
           <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
           <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
           <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>

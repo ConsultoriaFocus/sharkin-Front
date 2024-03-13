@@ -13,3 +13,8 @@
     margin: 0;
     font: 400 1.25rem "Clear Sans"; 
 }
+
+.button:hover{
+    cursor: pointer;
+    background: #0c1c49;
+}
