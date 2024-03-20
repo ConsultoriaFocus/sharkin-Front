@@ -9,17 +9,27 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-/* const userFormSchema = z.object({
-    email: z.string().min(2, { message: "o email é obrigatório" }),
-    password: z.string().min(6, { message: "o password é obrigatório" }),
-  }); */
+const loginUserFormSchema = z.object({
+  /* Aqui com o Zod é onde acontece a validação */
+  email: z.string().min(1, { message: "O email é obrigatório"}).refine(email => {
+    return email.endsWith('@consultoriafocus.com')
+  }, 'Formato de email invalido'),
+  password: z.string().min(1, { message: "A senha é obrigatória"})
+});
 
 const FormLogin = () => {
-  const { register, handleSubmit, control } = useForm({
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
+    resolver:
+      zodResolver(loginUserFormSchema) /* integrando o zod com o useForm */,
   });
 
   const onSubmit = (data) => console.log(data);
@@ -28,13 +38,15 @@ const FormLogin = () => {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input label="Email" id="email" type="email" {...register("email")} />
+        {/* exibição da mensagem de erro */}
+        {errors.email && <span>{errors.email.message}</span>}{" "}
         <Input
           label="Senha"
           id="senha"
           type="password"
           {...register("password")}
         />
-
+        {errors.password && <span>{errors.password.message}</span>}
         <div className={styles.button}>
           <ButtonPrimary text="Entrar" type="submit" />
           <ButtonSecondary text="Trocar Senha" />
