@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+
 import Card from "../../components/form/card/Card";
 import Title from "../../components/title/Title";
 import LogoFocus from "../../assets/LogoFocus.svg";
-import Input from "../../components/form/formInput/Input";
-import ButtonPrimary from "../../components/buttonPrimary/ButtonPrimary";
-import ButtonSecondary from "../../components/buttonSecondary/ButtonSecondary";
+import FormLogin from "../../components/form/formLogin/FormLogin";
 import styles from "./Login.module.css";
 
 const Login = () => {
@@ -12,6 +11,7 @@ const Login = () => {
     <div className={styles.body}>
       <div className={styles.container}>
         <Card>
+          
           <div className={styles.titulo}>
             <img
               src={LogoFocus}
@@ -20,16 +20,7 @@ const Login = () => {
             <Title title="Sharkin" />
           </div>
 
-
-          <form action="">
-            <Input label="Email" id="email" type="email" />
-            <Input label="Senha" id="senha" type="password" />
-
-            <div className={styles.button}>
-              <ButtonPrimary text="Entrar" />
-              <ButtonSecondary text="Trocar Senha" />
-            </div>
-          </form>
+          <FormLogin />
         </Card>
 
         <div className={styles.textos}>
