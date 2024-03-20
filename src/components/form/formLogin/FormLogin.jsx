@@ -11,10 +11,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 const loginUserFormSchema = z.object({
   /* Aqui com o Zod é onde acontece a validação */
-  email: z.string().min(1, { message: "O email é obrigatório"}).refine(email => {
-    return email.endsWith('@consultoriafocus.com')
-  }, 'Formato de email invalido'),
-  password: z.string().min(1, { message: "A senha é obrigatória"})
+  email: z
+    .string()
+    .min(1, { message: "O email é obrigatório" })
+    .refine((email) => {
+      return email.endsWith("@consultoriafocus.com");
+    }, "Formato de email invalido"),
+  password: z.string().min(1, { message: "A senha é obrigatória" }),
 });
 
 const FormLogin = () => {
@@ -36,17 +39,25 @@ const FormLogin = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <Input label="Email" id="email" type="email" {...register("email")} />
-        {/* exibição da mensagem de erro */}
-        {errors.email && <span>{errors.email.message}</span>}{" "}
-        <Input
-          label="Senha"
-          id="senha"
-          type="password"
-          {...register("password")}
-        />
-        {errors.password && <span>{errors.password.message}</span>}
+      <form onSubmit={handleSubmit(onSubmit)} style={{ position: "relative" }}>
+        <div className={styles.inputs}>
+          <Input label="Email" id="email" type="email" {...register("email")} />
+          {/* exibição da mensagem de erro */}
+          {errors.email && (
+            <span className={styles.error}>{errors.email.message}</span>
+          )}
+        </div>
+        <div className={styles.inputs}>
+          <Input
+            label="Senha"
+            id="senha"
+            type="password"
+            {...register("password")}
+          />
+          {errors.password && (
+            <span className={styles.error}>{errors.password.message}</span>
+          )}
+        </div>
         <div className={styles.button}>
           <ButtonPrimary text="Entrar" type="submit" />
           <ButtonSecondary text="Trocar Senha" />
