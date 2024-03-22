@@ -3,16 +3,15 @@
   flex-direction: column;
   align-items: center;
   gap: 25px;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .error {
   padding-left: 15px;
   color: red;
-  font-family: 'Clear Sans', sans-serif;
-
+  font-family: "Clear Sans", sans-serif;
 }
 
-.inputs{
-margin-bottom: 20px;
+.inputs {
+  margin-bottom: 20px;
 }

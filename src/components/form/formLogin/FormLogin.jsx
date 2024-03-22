@@ -1,5 +1,5 @@
 import React from "react";
-import Input from "../formInput/Input";
+import Input from "../Input/Input";
 import ButtonPrimary from "../../buttonPrimary/ButtonPrimary";
 import ButtonSecondary from "../../buttonSecondary/ButtonSecondary";
 import styles from "../formLogin/formLogin.module.css";
@@ -35,11 +35,22 @@ const FormLogin = () => {
       zodResolver(loginUserFormSchema) /* integrando o zod com o useForm */,
   });
 
-  const onSubmit = (data) => console.log(data);
+/*   const onSubmit = async (data) => {
+    let response = await fetch("https:localhost:8080/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "aplication/jason",
+      },
+      body: JSON.stringify(data),
+    });
+    response = await response.json();
+    localStorage.setItem(JSON.stringify(response)); 
+  }; */
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} style={{ position: "relative" }}>
+      <form onSubmit={handleSubmit()}>
         <div className={styles.inputs}>
           <Input label="Email" id="email" type="email" {...register("email")} />
           {/* exibição da mensagem de erro */}

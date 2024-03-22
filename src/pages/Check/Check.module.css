@@ -1,0 +1,25 @@
+.body{
+    display: flex;
+    gap: 150px;
+    margin: 40px 60px;
+}
+
+.container{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.label{
+    display: flex;
+    gap: 85px;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+.button{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 150px;
+    align-items: center;
+}
