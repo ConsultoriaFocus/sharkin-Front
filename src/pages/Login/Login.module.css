@@ -1,11 +1,17 @@
 .body {
-  margin: 35px 50px;
+  margin: 0px 50px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card{
+  width: 600px;
 }
 
 .titulo {
@@ -14,15 +20,15 @@
   align-items: center;
 }
 
-.h1{
+.h1 {
   font: 700 3.5rem "Inter";
-  color: #3E3E3E;
-  margin: 0 0 30px 0; 
+  color: #3e3e3e;
+  margin: 0 0 30px 0;
 }
 
 .textos p {
   margin: 0;
-  color: #000;
+  color: #3e3e3e;
   font: 400 1.5rem "Clear Sans";
 }
 
@@ -33,3 +39,22 @@
   margin-left: 190px;
   gap: 30px;
 }
+
+.a{
+  text-decoration: none;
+  font: 400 1.4rem "Inter";
+  color: #3e3e3e;
+  align-self: center;
+  padding-top: 30px;
+}
+
+
+@media (min-width: 1700px){
+  .titulo{
+    padding-bottom: 30px ;
+  }
+  .card{
+    width: 650px;
+  }
+}
+  

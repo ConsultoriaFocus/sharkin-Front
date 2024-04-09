@@ -2,6 +2,7 @@ import React from "react";
 import Input from "../Input/Input";
 import ButtonPrimary from "../../buttonPrimary/ButtonPrimary";
 import ButtonSecondary from "../../buttonSecondary/ButtonSecondary";
+import { useNavigate } from "react-router-dom";
 import styles from "../formLogin/formLogin.module.css";
 
 import { DevTool } from "@hookform/devtools";
@@ -35,18 +36,8 @@ const FormLogin = () => {
       zodResolver(loginUserFormSchema) /* integrando o zod com o useForm */,
   });
 
-/*   const onSubmit = async (data) => {
-    let response = await fetch("https:localhost:8080/api", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "aplication/jason",
-      },
-      body: JSON.stringify(data),
-    });
-    response = await response.json();
-    localStorage.setItem(JSON.stringify(response)); 
-  }; */
+  const navigate = useNavigate();
+  const handlePage = () =>{return navigate("/password");};
 
   return (
     <>
@@ -71,7 +62,7 @@ const FormLogin = () => {
         </div>
         <div className={styles.button}>
           <ButtonPrimary text="Entrar" type="submit" />
-          <ButtonSecondary text="Trocar Senha" />
+          <ButtonSecondary text="Trocar Senha" onClick={handlePage}/>
         </div>
       </form>
       <DevTool control={control} />

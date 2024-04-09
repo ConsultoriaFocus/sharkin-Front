@@ -15,3 +15,13 @@
 .inputs {
   margin-bottom: 20px;
 }
+
+@media (min-width: 1700px){
+  .button{
+    margin-top: 70px;
+    gap: 30px;
+  }
+  .inputs {
+    margin-bottom: 30px;
+  }
+}
