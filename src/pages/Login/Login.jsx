@@ -17,7 +17,7 @@ const Login = () => {
               src={LogoFocus}
               style={{ width: "90px", height: "95px" }}
             ></img>
-            <Title title="Sharkin" />
+            <h1 className={styles.h1}>Sharkin</h1>
           </div>
 
           <FormLogin />

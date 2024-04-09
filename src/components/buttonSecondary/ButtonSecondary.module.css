@@ -1,7 +1,7 @@
 .button {
-  background: #f4f3f3;
-  border: 1px solid rgba(145, 140, 140, 0.73);
-  border-radius: 20px;
+  background: #fff;
+  border: 1px solid rgba(140, 142, 145, 0.50);
+  border-radius: 10px;
   padding: 15px 80px;
   width: 300px;
   flex-shrink: 0;
@@ -9,7 +9,7 @@
 
 .text {
   margin: 0;
-  font: 400 1.25rem "Clear Sans";
+  font: 400 1.25rem "Inter";
 }
 
 .button:hover{

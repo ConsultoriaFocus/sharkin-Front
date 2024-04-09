@@ -3,10 +3,11 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Login from "./pages/Login/Login";
 import PasswordForgot from "./pages/PasswordForgot/PasswordForgot";
+import AddUser from "./pages/AddUser";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Check from "./pages/Check/Check";
-import History from "./pages/History/History";
+
 
 
 const router = createBrowserRouter([
@@ -23,8 +24,8 @@ const router = createBrowserRouter([
     element: <Check />,
   },
   {
-    path: "/history",
-    element: <History />,
+    path: "/Add",
+    element: <AddUser />,
   }
 ]);
 

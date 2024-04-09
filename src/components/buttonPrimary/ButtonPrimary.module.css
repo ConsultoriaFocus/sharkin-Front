@@ -3,7 +3,7 @@
     background: #11255E;
     color: #fff;
     padding: 15px 100px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
     width: 300px;
     flex-shrink: 0;
@@ -11,7 +11,7 @@
 
 .text{
     margin: 0;
-    font: 400 1.25rem "Clear Sans"; 
+    font: 400 1.25rem "Inter"; 
 }
 
 .button:hover{
