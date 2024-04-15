@@ -1,12 +1,16 @@
 import React from "react";
-import Login from "./pages/Login/Login";
+import LoginRoutes from "./routes/LoginRoutes.jsx";
 import GlobalStyle from "./styles/global.js";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <Login />
-      <GlobalStyle />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<LoginRoutes />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

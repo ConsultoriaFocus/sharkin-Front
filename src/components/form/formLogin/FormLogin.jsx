@@ -43,7 +43,7 @@ const FormLogin = () => {
     <>
       <form onSubmit={handleSubmit()}>
         <div className={styles.inputs}>
-          <Input label="Email" id="email" type="email" {...register("email")} />
+          <Input label="Email" id="email" type="email" {...register("email")} /> 
           {/* exibição da mensagem de erro */}
           {errors.email && (
             <span className={styles.error}>{errors.email.message}</span>

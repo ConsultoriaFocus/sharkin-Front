@@ -10,7 +10,7 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.card{
+.card {
   width: 600px;
 }
 
@@ -32,29 +32,41 @@
   font: 400 1.5rem "Clear Sans";
 }
 
-.textos {
+.right {
+  margin-left: 190px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 190px;
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
   gap: 30px;
 }
 
-.a{
+.a_add {
   text-decoration: none;
-  font: 400 1.4rem "Inter";
+  font: 400 1.1rem "Inter";
   color: #3e3e3e;
   align-self: center;
   padding-top: 30px;
 }
 
+.a_history {
+  text-decoration: none;
+  font: 400 1.5rem "Clear Sans";
+  color: #3e3e3e;
+  align-self: center;
+  position: relative;
+  top: 250px;
+}
 
-@media (min-width: 1700px){
-  .titulo{
-    padding-bottom: 30px ;
+@media (min-width: 1700px) {
+  .titulo {
+    padding-bottom: 30px;
   }
-  .card{
+  .card {
     width: 650px;
   }
 }
-  

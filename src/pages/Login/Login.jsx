@@ -22,16 +22,25 @@ const Login = () => {
             </div>
 
             <FormLogin />
-            <Link to="/Add" className={styles.a}>Cadastrar</Link>
+            <Link to="/add" className={styles.a_add}>
+              Cadastrar
+            </Link>
           </Card>
         </div>
 
-        <div className={styles.textos}>
-          {/* FIX: Isso provavelmente será puxado de uma api */}
-          <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
-          <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
-          <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
-          <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
+        <div className={styles.right}>
+          <div className={styles.textos}>
+            {/* FIX: Isso provavelmente será puxado de uma api */}
+            <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
+            <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
+            <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
+            <p>Letícia Urbano Pessanha 18/03/2024 15:00</p>
+          </div>
+
+          {/* FIX: Mudar esse link depois */}
+          <Link to="/" className={styles.a_history}>
+            Histórico
+          </Link>
         </div>
       </div>
     </div>

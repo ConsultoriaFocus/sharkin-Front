@@ -25,3 +25,9 @@
     justify-content: center;
     padding-top: 100px;
 }
+
+@media (min-width: 1400px){
+    .container{
+        width: 700px;
+    }
+}
