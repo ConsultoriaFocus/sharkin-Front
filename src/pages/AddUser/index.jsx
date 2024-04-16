@@ -36,6 +36,31 @@ const AddUser = () => {
     resolver: zodResolver(AddUserFormSchema),
   });
 
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch('http://localhost:8000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Erro na requisição');
+      }
+
+      const responseData = await response.json();
+      console.log(responseData);
+      // Aqui você pode atualizar o estado do componente ou redirecionar o usuário
+    } catch (error) {
+      console.error('Erro ao criar usuário:', error);
+      // Aqui você pode tratar erros, como mostrar uma mensagem de erro para o usuário
+    }
+ };
+
+
+
   return (
     <div className={styles.body}>
       <div className={styles.container}>
@@ -44,7 +69,7 @@ const AddUser = () => {
             <Title title="Adicionar" />
           </div>
 
-          <form onSubmit={handleSubmit()}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className={styles.labels}>
               <Input label="Nome" id="nome" type="text" {...register("name")} />
               {errors.name && (
@@ -70,7 +95,7 @@ const AddUser = () => {
               )}
             </div>
             <div className={styles.button}>
-              <ButtonPrimary text="Cadastrar" />
+              <ButtonPrimary text="Cadastrar" type="submit" />
             </div>
           </form>
         </Card>
