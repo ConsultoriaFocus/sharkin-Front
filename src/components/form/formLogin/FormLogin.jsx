@@ -9,6 +9,8 @@ import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { UseLocalStorage } from "../../../hooks/useLocalStorage";
+import { IsAuthenticated } from "../../../auth/isAuthenticated";
 
 const loginUserFormSchema = z.object({
   /* Aqui com o Zod é onde acontece a validação */
@@ -37,13 +39,44 @@ const FormLogin = () => {
   });
 
   const navigate = useNavigate();
-  const handlePage = () =>{return navigate("/password");};
+  const handlePage = () => {
+    return navigate("/password");
+  };
+
+  const onSubmit = async (data) => {
+    /*     const { getItem } = UseLocalStorage("db_user");
+        const local = getItem();
+        console.log(IsAuthenticated(data, local)); */
+    try {
+      const response = await fetch("http://localhost:8000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Erro na requisição");
+      }
+
+      const responseData = await response.json();
+      console.log(responseData);
+
+      const { setItem } = UseLocalStorage("token");
+      setItem(responseData.token);
+
+      //console.log(IsAuthenticated(responseData.token));
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+    }
+  };
 
   return (
     <>
-      <form onSubmit={handleSubmit()}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputs}>
-          <Input label="Email" id="email" type="email" {...register("email")} /> 
+          <Input label="Email" id="email" type="email" {...register("email")} />
           {/* exibição da mensagem de erro */}
           {errors.email && (
             <span className={styles.error}>{errors.email.message}</span>
@@ -62,7 +95,7 @@ const FormLogin = () => {
         </div>
         <div className={styles.button}>
           <ButtonPrimary text="Entrar" type="submit" />
-          <ButtonSecondary text="Trocar Senha" onClick={handlePage}/>
+          <ButtonSecondary text="Trocar Senha" onClick={handlePage} />
         </div>
       </form>
       <DevTool control={control} />
