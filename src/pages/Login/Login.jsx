@@ -22,7 +22,7 @@ const Login = () => {
             </div>
 
             <FormLogin />
-            <Link to="/add" className={styles.a_add}>
+            <Link to="/cadastro" className={styles.a_add}>
               Cadastrar
             </Link>
           </Card>

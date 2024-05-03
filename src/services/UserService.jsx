@@ -17,4 +17,8 @@ export default class UserServices {
         }
         return false;
     }
+
+    usuarioAutenticado(){
+        return localStorage.getItem('token') != undefined ? true : false;
+    }
 } 

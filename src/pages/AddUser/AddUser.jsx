@@ -3,7 +3,7 @@ import Card from "../../components/form/card/Card";
 import Title from "../../components/title/Title";
 import Input from "../../components/form/Input/Input";
 import ButtonPrimary from "../../components/buttonPrimary/ButtonPrimary";
-import styles from "../AddUser/index.module.css";
+import styles from "../AddUser/AddUser.module.css";
 
 import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";

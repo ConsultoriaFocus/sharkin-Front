@@ -2,9 +2,11 @@
 - [ ] Fazer um useFetch ou fazer o uso do axios
 - [ ] fazer toda a parte de login
     -> userServices (criar metodos)
+       - [x] Parte de Login para salvar o token
     -> Axios
     -> Router
     -> Protected Routes (gerenciamento de autenticação pras paginas)
+        - [] Colocar uma pagina de errro quando tentar acessar sem o token
     -> Navigate
 
-IDEIA: Pra diminuir um pouco a quantidade de código na mesma pagina, separar o Schema
+- [] centralizar os nomes com wrap
