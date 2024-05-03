@@ -45,7 +45,6 @@ const PasswordForgot = () => {
         message: "As senhas devem ser iguais",
       });
     } else { //No momento estou usando o localhost pra guardar essa alteração pois a api pra isso não está funcionando
-      
       const { setItem, getItem } = UseLocalStorage("db_user", data);
       const { name } = getItem();
       const { password1, email } = data; 

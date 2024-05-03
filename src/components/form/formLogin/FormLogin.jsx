@@ -10,7 +10,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UseLocalStorage } from "../../../hooks/useLocalStorage";
-import { IsAuthenticated } from "../../../auth/isAuthenticated";
+import UserServices from "../../../services/UserService";
+
+const userService = new UserServices();
 
 const loginUserFormSchema = z.object({
   /* Aqui com o Zod é onde acontece a validação */
@@ -44,31 +46,12 @@ const FormLogin = () => {
   };
 
   const onSubmit = async (data) => {
-    /*     const { getItem } = UseLocalStorage("db_user");
-        const local = getItem();
-        console.log(IsAuthenticated(data, local)); */
     try {
-      const response = await fetch("http://localhost:8000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error("Erro na requisição");
-      }
-
-      const responseData = await response.json();
-      console.log(responseData);
-
-      const { setItem } = UseLocalStorage("token");
-      setItem(responseData.token);
-
-      //console.log(IsAuthenticated(responseData.token));
-    } catch (error) {
-      console.error("Erro ao criar usuário:", error);
+      const response = await userService.login(data);
+      console.log(response);
+    } 
+    catch (err) {
+      alert(err.message);
     }
   };
 
