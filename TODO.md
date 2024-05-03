@@ -1,6 +1,6 @@
 - [ ] exibir mensagens para confirmação visual dos formulários
-- [ ] Fazer um useFetch ou fazer o uso do axios
-- [ ] fazer toda a parte de login
+- [ ] Refatorar requisições com o UserServices
+- [x] fazer toda a parte de login
     -> userServices (criar metodos)
        - [x] Parte de Login para salvar o token
     -> Axios
@@ -9,4 +9,5 @@
         - [] Colocar uma pagina de errro quando tentar acessar sem o token
     -> Navigate
 
+- [ ] fazer botão de logout
 - [] centralizar os nomes com wrap

@@ -12,7 +12,6 @@ export default class UserServices {
 
         if (data) {
             localStorage.setItem('token', data.token);
-
             return true;
         }
         return false;
@@ -20,5 +19,9 @@ export default class UserServices {
 
     usuarioAutenticado(){
         return localStorage.getItem('token') != undefined ? true : false;
+    }
+
+    async logout(){
+        localStorage.removeItem('token');
     }
 } 
