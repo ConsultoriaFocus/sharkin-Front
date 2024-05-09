@@ -1,12 +1,17 @@
 .body{
+    height: 100vh;
     display: flex;
-    gap: 150px;
-    margin: 40px 60px;
+    justify-content: center;
+    align-items: center;
 }
 
 .container{
     padding-top: 50px;
     padding-bottom: 50px;
+}
+
+.card{
+    width: 600px;
 }
 
 .label{

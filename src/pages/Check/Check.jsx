@@ -8,32 +8,21 @@ import styles from "../Check/Check.module.css";
 export default function Check() {
   return (
     <div className={styles.body}>
-      <Card>
-        <div className={styles.container}>
-          <Input />
-          <div className={styles.label}>
+      <div className={styles.card}>
+        <Card>
+          <div className={styles.container}>
             <Input />
-            <Input />
+            <div className={styles.label}>
+              <Input />
+              <Input />
+            </div>
+            <div className={styles.button}>
+              <ButtonPrimary text="Shark-in" />
+              <ButtonSecondary text="Shark-out" />
+            </div>
           </div>
-          <div className={styles.button}>
-            <ButtonPrimary text="Shark-in" />
-            <ButtonSecondary text="Shark-out" />
-          </div>
-        </div>
-      </Card>
-      <Card>
-        <div className={styles.container}>
-          <Input />
-          <div className={styles.label}>
-            <Input />
-            <Input />
-          </div>
-          <div className={styles.button}>
-            <ButtonPrimary text="Shark-in" />
-            <ButtonSecondary text="Shark-out" />
-          </div>
-        </div>
-      </Card>
+        </Card>
+      </div>
     </div>
   );
 }

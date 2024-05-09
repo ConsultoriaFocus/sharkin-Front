@@ -10,7 +10,9 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UseLocalStorage } from "../../hooks/useLocalStorage";
+import UserServices from "../../services/UserService";
 
+const userService = new UserServices();
 
 const AddUserFormSchema = z.object({
   name: z.string().min(1, { message: "O nome é obrigatório" }),
@@ -40,27 +42,14 @@ const AddUser = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch("http://localhost:8000/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error("Erro na requisição");
+      const response = await userService.register(data);
+      
+      if(response === true){
+        alert('Usuário criado com sucesso');
       }
-
-      const responseData = await response.json();
-      console.log(responseData);
-
-      //Hook personalizado ----------------
-      const { setItem } = UseLocalStorage("db_user", responseData);
-      setItem(responseData);
-      //----------------------------------------------------------------
-    } catch (error) {
-      console.error("Erro ao criar usuário:", error);
+    }
+    catch (err) {
+      alert(err.message);
     }
   };
 

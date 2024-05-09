@@ -17,6 +17,21 @@ export default class UserServices {
         return false;
     }
 
+    async register (dados) {
+        const {data} = await this.axios.post('/register', dados);
+
+        if (data) {
+            localStorage.setItem('name', data.name);
+            localStorage.setItem('email', data.email);
+            localStorage.setItem('password', data.password);
+            
+            return true;
+        }
+        return false;
+    }
+
+    /* async edit (dados) */
+
     usuarioAutenticado(){
         return localStorage.getItem('token') != undefined ? true : false;
     }
