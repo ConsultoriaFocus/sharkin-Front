@@ -6,8 +6,9 @@
 }
 
 .container{
-    padding-top: 50px;
-    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 }
 
 .card{
@@ -18,13 +19,12 @@
     display: flex;
     gap: 85px;
     justify-content: space-between;
-    padding-top: 50px;
 }
 
 .button{
     display: flex;
     flex-direction: column;
     gap: 40px;
-    padding-top: 150px;
+    padding-top: 100px;
     align-items: center;
 }

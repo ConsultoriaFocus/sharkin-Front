@@ -1,15 +1,14 @@
 .dropdown {
-  width: 400px;
-  margin: 100px auto;
+  width: auto;
   position: relative;
   user-select: none; /* ? */
 }
 
 .btn {
-  padding: 10px;
+  padding: 20px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
   cursor: pointer;
   border-radius: 10px;
   border: 1px solid rgba(140, 142, 145, 0.3);
@@ -25,7 +24,8 @@
   padding: 10px;
   background: #fff;
   width: 100%;
-  border-radius: 0px 10px;
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid rgba(140, 142, 145, 0.3);
 }
 
 .item {

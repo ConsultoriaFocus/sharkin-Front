@@ -3,7 +3,7 @@ import styles from "./Dropdown.module.css";
 
 function Dropdown({ selected, setSelected }) {
   const [isActive, setActive] = useState(false);
-  const options = ["Sim", "Não"];
+  const options = ["Sim, estou ajudando um amigo", "Não, o plantão é meu mesmo"];
 
     console.log(selected);
 

@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import useCurrentTime from '../hooks/useCurrentTime';
 import Dropdown from '../components/select/Dropdown';
+import styles from '../pages/hometest.module.css'
+import Display from '../components/display/Display';
 
 export default function Hometest() {
     const currentTime = useCurrentTime();
     const name = localStorage.getItem('name');
     const data = moment().format('DD/MM/YY');
-
-
-    const [selected, setSelected] = useState("");
 
     return (
     <div>
@@ -17,7 +16,8 @@ export default function Hometest() {
       <p>{data}</p>
       <p>{currentTime}</p>
       <br />
-      <Dropdown selected={selected} setSelected={setSelected}/>
+      <div className={styles.display}>Isabelle Pires Vimercati</div>
+      <Display mensagem = "Meu nome" />
     </div>
   )
 }
