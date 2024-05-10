@@ -11,8 +11,12 @@
 - [ ] Colocar uma pagina de errro quando tentar acessar sem o token
 - [x] Refatorar requisições com o UserServices
 - [ ] Refazer tela de Sharkin interno
-  - [ ] Deixar apenas 1 card
-  - [ ] mudar as labels
+  - [x] Deixar apenas 1 card
+  - [x] mudar as labels
   - [ ] colocar botão logout
   - [ ] exibir as informações de data, hora e nome da pessoa
-  - [ ] colocar opção de cobrindo plantão -> criar o select
+  - [x] colocar opção de cobrindo plantão -> criar o select
+- [ ] Refatorar o uso da api
+  - [ ] sharkin
+  - [ ] trocar a senha
+- [ ] 
