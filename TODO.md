@@ -14,9 +14,9 @@
   - [x] Deixar apenas 1 card
   - [x] mudar as labels
   - [ ] colocar botão logout
-  - [ ] exibir as informações de data, hora e nome da pessoa
+  - [x] exibir as informações de data, hora e nome da pessoa
   - [x] colocar opção de cobrindo plantão -> criar o select
-- [ ] Refatorar o uso da api
+- [x] Refatorar o uso da api
   - [ ] sharkin
   - [ ] trocar a senha
 - [ ] 

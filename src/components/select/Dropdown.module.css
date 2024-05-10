@@ -1,7 +1,8 @@
 .dropdown {
   width: auto;
   position: relative;
-  user-select: none; /* ? */
+  user-select: none;
+  font-size: 1.2rem; /* ? */
 }
 
 .btn {

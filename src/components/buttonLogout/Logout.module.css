@@ -1,0 +1,18 @@
+.button {
+    background: #cfcdcd;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+  }
+  
+  .text{
+      margin: 0;
+      font: 400 1rem "Inter";
+      color: #515050;
+  }
+  
+  .button:hover{
+      cursor: pointer;
+      background: #e0e0e0;
+  }
