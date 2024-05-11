@@ -53,5 +53,6 @@ export default class UserServices {
 
   async logout() {
     localStorage.removeItem("token");
+
   }
 }
