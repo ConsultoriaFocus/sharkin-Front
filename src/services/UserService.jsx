@@ -30,7 +30,13 @@ export default class UserServices {
     return false;
   }
 
-  /* async edit (dados) */
+  async edit(dados) {
+    const { data } = await this.axios.post("/forgot-password", dados);
+
+    if (data){
+      return data;
+    }
+  }
 
   async user() {
     const token = localStorage.getItem("token");

@@ -1,30 +1,14 @@
-.display {
-  padding: 20px;
+.header{
+  background-color: #11255E;
   display: flex;
   align-items: center;
-  border-radius: 10px;
-  border: 1px solid rgba(140, 142, 145, 0.3);
-  background: #fff;
-  width: 100%;
-  height: 40px;
-  min-width: 200px;
+  justify-content: space-between;
+  padding: 20px;
+
 }
 
-.button {
-  background: #cfcdcd;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  width: 100px;
-}
-
-.btn_text{
-    margin: 0;
-    font: 400 1rem "Inter";
-    color: #515050;
-}
-
-.button:hover{
-    cursor: pointer;
-    background: #e0e0e0;
+.titulo{
+  color: #fff;
+  font: 500 3.7rem 'Inter';
+  padding-left: 30px;
 }

@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { UseLocalStorage } from "../../hooks/useLocalStorage";
+import UserServices from "../../services/UserService";
 
 const PasswordFormSchema = z.object({
   email: z
@@ -18,9 +19,12 @@ const PasswordFormSchema = z.object({
     .refine((email) => {
       return email.endsWith("@consultoriafocus.com");
     }, "Formato de email invalido"),
-  password1: z.string().min(1, { message: "A nova senha é obrigatória" }),
+  password: z.string().min(1, { message: "A nova senha é obrigatória" }),
   confirmpassword: z.string().min(1, { message: "A nova senha é obrigatória" }),
 });
+
+
+const userService = new UserServices();
 
 const PasswordForgot = () => {
   const {
@@ -32,23 +36,22 @@ const PasswordForgot = () => {
   } = useForm({
     defaultValues: {
       email: "",
-      password1: "",
+      password: "",
       confirmpassword: "",
     },
     resolver: zodResolver(PasswordFormSchema),
   });
 
   const onSubmit = async (data) => {
-    if (data.password1 !== data.confirmpassword) {
+    console.log(data);
+    if (data.password !== data.confirmpassword) {
       setError("confirmpassword", {
         type: "manual",
         message: "As senhas devem ser iguais",
       });
     } else { //No momento estou usando o localhost pra guardar essa alteração pois a api pra isso não está funcionando
-      const { setItem, getItem } = UseLocalStorage("db_user", data);
-      const { name } = getItem();
-      const { password1, email } = data; 
-      setItem({'name': name, 'password': password1, 'email': email});
+      const response = await userService.edit(data);
+      console.log(response);
     }
 
   };
@@ -78,13 +81,13 @@ const PasswordForgot = () => {
                 <div>
                   <Input
                     label="Nova senha"
-                    id="password1"
+                    id="password"
                     type="text"
-                    {...register("password1")}
+                    {...register("password")}
                   />
-                  {errors.password1 && (
+                  {errors.password && (
                     <span className={styles.error}>
-                      {errors.password1.message}
+                      {errors.password.message}
                     </span>
                   )}
                 </div>

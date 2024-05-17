@@ -1,0 +1,14 @@
+.header{
+    background-color: #11255E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  
+  }
+  
+  .titulo{
+    color: #fff;
+    font: 500 3.7rem 'Inter';
+    padding-left: 30px;
+  }

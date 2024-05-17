@@ -1,22 +1,6 @@
 - [ ] exibir mensagens para confirmação visual dos formulários
-- [x] fazer toda a parte de login
-    -> userServices (criar metodos)
-       - [x] Parte de Login para salvar o token
-    -> Axios
-    -> Router
-    -> Protected Routes (gerenciamento de autenticação pras paginas)
-    -> Navigate
-- [ ] fazer botão de logout
-- [ ] centralizar os nomes com wrap
 - [ ] Colocar uma pagina de errro quando tentar acessar sem o token
-- [x] Refatorar requisições com o UserServices
-- [ ] Refazer tela de Sharkin interno
-  - [x] Deixar apenas 1 card
-  - [x] mudar as labels
-  - [ ] colocar botão logout
-  - [x] exibir as informações de data, hora e nome da pessoa
-  - [x] colocar opção de cobrindo plantão -> criar o select
-- [x] Refatorar o uso da api
-  - [ ] sharkin
+- [ ] Refatorar o uso da api
   - [ ] trocar a senha
+  - [ ] adicionar confirmação de senha no cadastro
 - [ ] 
