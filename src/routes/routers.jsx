@@ -7,6 +7,7 @@ import Hometest from "../pages/hometest";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Check from "../pages/Check/Check";
+import Register from "../pages/Register/Register";
 
 const Routering = () => {
   return (
@@ -14,6 +15,7 @@ const Routering = () => {
       <Routes>
         <Route path="*" element={<Login />}></Route>
         <Route path="/teste" element={<Hometest />}></Route>
+        <Route path="/gep" element={<Register />}></Route>
         <Route path="/cadastro" element={<AddUser />}></Route>
         <Route path="/esqueciasenha" element={<PasswordForgot />}></Route>
         <Route

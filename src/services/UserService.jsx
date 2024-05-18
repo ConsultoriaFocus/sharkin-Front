@@ -33,7 +33,7 @@ export default class UserServices {
   async edit(dados) {
     const { data } = await this.axios.post("/forgot-password", dados);
 
-    if (data){
+    if (data) {
       return data;
     }
   }
@@ -42,14 +42,29 @@ export default class UserServices {
     const token = localStorage.getItem("token");
 
     try {
-        const response = await this.axios.get("/user/me",{
-            headers: {
-                Authorization: `${token}`
-            }
-        });
-        return response;
+      const response = await this.axios.get("/user/me", {
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+      return response;
     } catch (err) {
-        throw new Error('Erro ao obter usuário: ' + err.message);
+      throw new Error("Erro ao obter usuário: " + err.message);
+    }
+  }
+
+  async deleteUser() {
+    const token = localStorage.getItem("token");
+
+    try {
+      const response = await this.axios.delete("/user", {
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+      return response;
+    } catch (err) {
+      throw new Error("Erro ao deletar usuário: " + err.message);
     }
   }
 
@@ -59,6 +74,5 @@ export default class UserServices {
 
   async logout() {
     localStorage.removeItem("token");
-
   }
 }
