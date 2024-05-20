@@ -4,6 +4,9 @@ export default class UserServices {
   constructor() {
     this.axios = axios.create({
       baseURL: process.env.REACT_APP_LOGIN_API,
+      headers: {
+        'Content-Type': 'application/json',
+      },
     });
   }
 
@@ -34,7 +37,7 @@ export default class UserServices {
     const { data } = await this.axios.post("/forgot-password", dados);
 
     if (data) {
-      return data;
+      return data.message
     }
   }
 

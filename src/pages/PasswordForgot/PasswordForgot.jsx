@@ -9,7 +9,7 @@ import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UseLocalStorage } from "../../hooks/useLocalStorage";
+import { useToast } from '@chakra-ui/react';
 import UserServices from "../../services/UserService";
 
 const PasswordFormSchema = z.object({
@@ -20,9 +20,10 @@ const PasswordFormSchema = z.object({
       return email.endsWith("@consultoriafocus.com");
     }, "Formato de email invalido"),
   password: z.string().min(1, { message: "A nova senha é obrigatória" }),
-  confirmpassword: z.string().min(1, { message: "A nova senha é obrigatória" }),
+  passwordConfirmation: z
+    .string()
+    .min(1, { message: "A nova senha é obrigatória" }),
 });
-
 
 const userService = new UserServices();
 
@@ -37,23 +38,33 @@ const PasswordForgot = () => {
     defaultValues: {
       email: "",
       password: "",
-      confirmpassword: "",
+      passwordConfirmation: "",
     },
     resolver: zodResolver(PasswordFormSchema),
   });
 
+  const toast = useToast();
+
   const onSubmit = async (data) => {
-    console.log(data);
-    if (data.password !== data.confirmpassword) {
-      setError("confirmpassword", {
+    /* console.log(data); */
+    if (data.password !== data.passwordConfirmation) {
+      setError("passwordConfirmation", {
         type: "manual",
         message: "As senhas devem ser iguais",
       });
-    } else { //No momento estou usando o localhost pra guardar essa alteração pois a api pra isso não está funcionando
+    } else {
       const response = await userService.edit(data);
       console.log(response);
+      if(response){
+        toast({
+          title: 'Senha alterada com sucesso',
+          position: 'top-right',
+          variant: 'left-accent',
+          status: 'success',
+          isClosable: true,
+        })
+      }
     }
-
   };
 
   return (
@@ -94,13 +105,13 @@ const PasswordForgot = () => {
                 <div>
                   <Input
                     label="Nova senha"
-                    id="confirmpassword"
+                    id="passwordConfirmation"
                     type="text"
-                    {...register("confirmpassword")}
+                    {...register("passwordConfirmation")}
                   />
-                  {errors.confirmpassword && (
+                  {errors.passwordConfirmation && (
                     <span className={styles.error}>
-                      {errors.confirmpassword.message}
+                      {errors.passwordConfirmation.message}
                     </span>
                   )}
                 </div>

@@ -5,8 +5,6 @@ function Dropdown({ selected, setSelected }) {
   const [isActive, setActive] = useState(false);
   const options = ["Sim, estou ajudando um amigo", "Não, o plantão é meu mesmo"];
 
-    console.log(selected);
-
   return (
     <div className={styles.dropdown}>
       <div className={styles.btn} onClick={(e) => setActive(!isActive)}>

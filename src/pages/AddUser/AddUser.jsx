@@ -9,10 +9,11 @@ import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { UseLocalStorage } from "../../hooks/useLocalStorage";
 import UserServices from "../../services/UserService";
+import { useToast } from "@chakra-ui/react";
 
 const userService = new UserServices();
+
 
 const AddUserFormSchema = z.object({
   name: z.string().min(1, { message: "O nome é obrigatório" }),
@@ -23,6 +24,9 @@ const AddUserFormSchema = z.object({
       return email.endsWith("@consultoriafocus.com");
     }, "Formato de email invalido"),
   password: z.string().min(1, { message: "A senha é obrigatória" }),
+  passwordConfirmation: z
+    .string()
+    .min(1, { message: "Confirmar a senha é obrigatória" }),
 });
 
 const AddUser = () => {
@@ -30,26 +34,42 @@ const AddUser = () => {
     register,
     handleSubmit,
     control,
+    setError,
     formState: { errors },
   } = useForm({
     defaultValues: {
       name: "",
       email: "",
       password: "",
+      passwordConfirmation: "",
     },
     resolver: zodResolver(AddUserFormSchema),
   });
 
+  const toast = useToast();
+
   const onSubmit = async (data) => {
-    try {
-      const response = await userService.register(data);
-      
-      if(response === true){
-        alert('Usuário criado com sucesso');
+    if (data.password !== data.passwordConfirmation) {
+      setError("passwordConfirmation", {
+        type: "manual",
+        message: "As senhas devem ser iguais",
+      });
+    } else {
+      try {
+        const response = await userService.register(data);
+
+        if (response === true) {
+          toast({
+            title: 'Usuário cadastrado com sucesso',
+            position: 'top-right',
+            variant: 'left-accent',
+            status: 'success',
+            isClosable: true,
+          });
+        }
+      } catch (err) {
+        alert(err.message);
       }
-    }
-    catch (err) {
-      alert(err.message);
     }
   };
 
@@ -88,13 +108,26 @@ const AddUser = () => {
               <div className={styles.inputs}>
                 <Input
                   label="Senha"
-                  id="senha"
+                  id="password"
                   type="password"
                   {...register("password")}
                 />
                 {errors.password && (
                   <span className={styles.error}>
                     {errors.password.message}
+                  </span>
+                )}
+              </div>
+              <div className={styles.inputs}>
+                <Input
+                  label="Confirme a senha"
+                  id="passwordConfirmation"
+                  type="passwordConfirmation"
+                  {...register("passwordConfirmation")}
+                />
+                {errors.passwordConfirmation && (
+                  <span className={styles.error}>
+                    {errors.passwordConfirmation.message}
                   </span>
                 )}
               </div>

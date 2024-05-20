@@ -47,8 +47,7 @@ const FormLogin = () => {
   const onSubmit = async (data) => {
     try {
       const response = await userService.login(data);
-      console.log(response);
-
+      
       if(response === true) {
         navigate("/home");
       }
