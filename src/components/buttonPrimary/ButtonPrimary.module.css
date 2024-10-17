@@ -2,11 +2,11 @@
     text-transform:capitalize;
     background: #11255E;
     color: #fff;
-    padding: 15px 100px;
+    padding: 10px 50px;
     border-radius: 10px;
     border: none;
-    width: 300px;
-    flex-shrink: 0;
+    width: fit-content;
+    min-width: 200px;
 }
 
 .text{

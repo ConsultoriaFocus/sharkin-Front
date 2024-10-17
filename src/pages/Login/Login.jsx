@@ -1,9 +1,9 @@
 import React from "react";
 
-import Card from "../../components/form/card/Card";
 import LogoFocus from "../../assets/LogoFocus.svg";
 import FormLogin from "../../components/form/formLogin/FormLogin";
 import { Link } from "react-router-dom";
+
 
 import styles from "./Login.module.css";
 
@@ -12,7 +12,6 @@ const Login = () => {
     <div className={styles.body}>
       <div className={styles.container}>
         <div className={styles.card}>
-          <Card>
             <div className={styles.titulo}>
               <img
                 src={LogoFocus}
@@ -22,10 +21,9 @@ const Login = () => {
             </div>
 
             <FormLogin />
-            <Link to="/cadastro" className={styles.a_add}>
-              Cadastrar
+            <Link to="/esqueciasenha" className={styles.a_password}>
+              Esqueci minha senha
             </Link>
-          </Card>
         </div>
 
         <div className={styles.right}>
@@ -38,9 +36,6 @@ const Login = () => {
           </div>
 
           {/* FIX: Mudar esse link depois */}
-          <Link to="/" className={styles.a_history}>
-            Histórico
-          </Link>
         </div>
       </div>
     </div>

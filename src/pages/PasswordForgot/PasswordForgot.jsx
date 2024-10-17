@@ -9,7 +9,7 @@ import { DevTool } from "@hookform/devtools";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useToast } from '@chakra-ui/react';
+import { useToast } from "@chakra-ui/react";
 import UserServices from "../../services/UserService";
 
 const PasswordFormSchema = z.object({
@@ -55,14 +55,14 @@ const PasswordForgot = () => {
     } else {
       const response = await userService.edit(data);
       console.log(response);
-      if(response){
+      if (response) {
         toast({
-          title: 'Senha alterada com sucesso',
-          position: 'top-right',
-          variant: 'left-accent',
-          status: 'success',
+          title: "Senha alterada com sucesso",
+          position: "top-right",
+          variant: "left-accent",
+          status: "success",
           isClosable: true,
-        })
+        });
       }
     }
   };
@@ -70,58 +70,54 @@ const PasswordForgot = () => {
   return (
     <div className={styles.body}>
       <div className={styles.card}>
-        <Card>
-          <div className={styles.container}>
-            <div className={styles.title}>
-              <Title title="Troca senha" />
-            </div>
-
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className={styles.labels}>
-                <div>
-                  <Input
-                    label="Email"
-                    id="email"
-                    type="email"
-                    {...register("email")}
-                  />
-                  {errors.email && (
-                    <span className={styles.error}>{errors.email.message}</span>
-                  )}
-                </div>
-                <div>
-                  <Input
-                    label="Nova senha"
-                    id="password"
-                    type="text"
-                    {...register("password")}
-                  />
-                  {errors.password && (
-                    <span className={styles.error}>
-                      {errors.password.message}
-                    </span>
-                  )}
-                </div>
-                <div>
-                  <Input
-                    label="Nova senha"
-                    id="passwordConfirmation"
-                    type="text"
-                    {...register("passwordConfirmation")}
-                  />
-                  {errors.passwordConfirmation && (
-                    <span className={styles.error}>
-                      {errors.passwordConfirmation.message}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div className={styles.button}>
-                <ButtonPrimary text="Salvar" type="submit" />
-              </div>
-            </form>
+          <div className={styles.title}>
+            <Title title="Trocar senha" />
           </div>
-        </Card>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className={styles.labels}>
+              <div>
+                <Input
+                  label="Email"
+                  id="email"
+                  type="email"
+                  {...register("email")}
+                />
+                {errors.email && (
+                  <span className={styles.error}>{errors.email.message}</span>
+                )}
+              </div>
+              <div>
+                <Input
+                  label="Nova senha"
+                  id="password"
+                  type="text"
+                  {...register("password")}
+                />
+                {errors.password && (
+                  <span className={styles.error}>
+                    {errors.password.message}
+                  </span>
+                )}
+              </div>
+              <div>
+                <Input
+                  label="Nova senha"
+                  id="passwordConfirmation"
+                  type="text"
+                  {...register("passwordConfirmation")}
+                />
+                {errors.passwordConfirmation && (
+                  <span className={styles.error}>
+                    {errors.passwordConfirmation.message}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className={styles.button}>
+              <ButtonPrimary text="Salvar" type="submit" />
+            </div>
+          </form>
+
       </div>
       <DevTool control={control} />
     </div>

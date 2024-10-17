@@ -1,18 +1,30 @@
 .body {
-  margin: 0px 50px;
+  max-width: 1200px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 150px;
 }
 
-.card {
-  width: 600px;
+.card{
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 25px 25px 50px #e4e4e4, -25px -25px 50px #ffffff;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 40px 40px 80px;
+  box-sizing: border-box; /* Para respeitar o grid */
 }
 
 .titulo {
@@ -48,12 +60,12 @@
   gap: 30px;
 }
 
-.a_add {
+.a_password {
   text-decoration: none;
-  font: 400 1.1rem "Inter";
-  color: #3e3e3e;
+  font: 500 1rem "Inter";
+  color: #114beb;
   align-self: center;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 .a_history {
@@ -65,11 +77,3 @@
   top: 250px;
 }
 
-@media (min-width: 1700px) {
-  .titulo {
-    padding-bottom: 30px;
-  }
-  .card {
-    width: 650px;
-  }
-}
